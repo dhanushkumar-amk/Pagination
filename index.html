@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -9,6 +8,100 @@
     <link
       rel="stylesheet"
       href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="pagination">
+        <button
+          class="btn1"
+          onclick="backBtn()">
+          <i class="bx bx-left-arrow-alt"></i>
+          Prev
+        </button>
+        <ul>
+          <li
+            class="links active"
+            value="1"
+            onclick="activeLink()">
+            1
+          </li>
+          <li
+            class="links"
+            value="2"
+            onclick="activeLink()">
+            2
+          </li>
+          <li
+            class="links"
+            value="3"
+            onclick="activeLink()">
+            3
+          </li>
+          <li
+            class="links"
+            value="4"
+            onclick="activeLink()">
+            4
+          </li>
+          <li
+            class="links"
+            value="5"
+            onclick="activeLink()">
+            5
+          </li>
+          <li
+            class="links"
+            value="6"
+            onclick="activeLink()">
+            6
+          </li>
+        </ul>
+        <button
+          class="btn2"
+          onclick="nextBtn()">
+          Next
+          <i class="bx bx-right-arrow-alt"></i>
+        </button>
+      </div>
+    </div>
+    <!-- <script></script> -->
+    <script>
+      let link = document.getElementsByClassName('links');
+
+      let currentValue = 1;
+      function activeLink() {
+        for (l of link) {
+          l.classList.remove('active');
+        }
+
+        event.target.classList.add('active');
+        currentValue = event.target.value;
+      }
+
+      function backBtn() {
+        if (currentValue > 1) {
+          for (l of link) {
+            l.classList.remove('active');
+          }
+          currentValue--;
+          link[currentValue - 1].classList.add('active');
+          loop = true;
+        }
+      }
+
+      function nextBtn() {
+        if (currentValue < 6) {
+          for (l of link) {
+            l.classList.remove('active');
+          }
+          currentValue++;
+          link[currentValue - 1].classList.add('active');
+          loop = true;
+        }
+      }
+    </script>
+  </body>
 </html>
